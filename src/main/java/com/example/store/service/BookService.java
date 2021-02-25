@@ -72,7 +72,7 @@ public class BookService {
 
         Books currBookState = bookRepository.findById(bookId).orElse(null);
 
-        if (currBookState == null)
+        if (currBookState != null)
         {
             /* For only specific fields changed if user don't provide all the data */
             if (book.getTitle() == null || book.getTitle().equals("")) { book.setTitle(currBookState.getTitle()); }
