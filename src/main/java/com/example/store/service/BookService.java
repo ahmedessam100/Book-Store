@@ -72,16 +72,16 @@ public class BookService {
         Books currBookState = bookRepository.findById(bookId).get();
 
         /* For only specific fields changed if user don't provide all the data */
-        if (book.getTitle() == null)
+        if (book.getTitle() == null || book.getTitle().equals(""))
             book.setTitle(currBookState.getTitle());
 
-        if (book.getAuthorName() == null)
+        if (book.getAuthorName() == null || book.getAuthorName().equals(""))
             book.setAuthorName(currBookState.getAuthorName());
 
         if (book.getReleaseDate() == null)
             book.setReleaseDate(currBookState.getReleaseDate());
 
-        if (book.getDescription() == null)
+        if (book.getDescription() == null || book.getDescription().equals(""))
             book.setDescription(currBookState.getDescription());
 
         book.setId(bookId);
